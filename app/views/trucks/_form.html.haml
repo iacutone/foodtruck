@@ -1,0 +1,19 @@
+%h3 Search for a Food Truck by Twitter name
+= form_tag(params, :method => :get) do 
+	= text_field_tag :name
+	= submit_tag "Search", class: 'btn btn-primary'
+	
+- if params[:name].present?
+	= @twitter_user.username
+	= @twitter_user.name
+
+	= form_for(@truck) do |f|
+		= f.hidden_field :twitter_name, value: @twitter_user.user_name
+		= f.hidden_field :name, value: @twitter_user.name
+		= f.hidden_field :id, value: @twitter_user.id
+		= f.fields_for(:location) do |builder|
+			= builder.label :city, "City"
+			= builder.text_field :city
+			= builder.label :state, "State"
+			= builder.select :state, UsStates.new.states
+		= f.submit 'Create', class: 'btn btn-primary'
