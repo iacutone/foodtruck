@@ -27,12 +27,14 @@ namespace :twitter do
 	end
 	
 	task :fetch_tweets => :environment do
-		Truck.all.each do |truck|
-			client = initiate_client
-			begin
-			rescue Twitter::Error::NotFound
-				
-			end
+		client = initiate_client
+		
+		truck = Truck.first
+		tweet_array = client.user_timeline(truck.twitter_name)
+		tweet_array.each do |t|
+			tweet = truck.tweets.new
+			tweet.update_attributes(time: t.created_at, tweet_text: t.full_text)
+			tweet.save!
 		end
 	end
 	
