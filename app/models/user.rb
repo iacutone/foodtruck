@@ -11,11 +11,13 @@ class User
   field :email,           type: String
   field :password_digest, type: String
   
+  has_many :trucks
+  
   def self.permitted_params
   	[
   		:name,
   		:email,
-  		:password_conifmation
+  		:password_digest
   	]
   end
 end
