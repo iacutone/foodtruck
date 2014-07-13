@@ -14,6 +14,9 @@ class User
   
   has_many :trucks
   
+  validates_presence_of   :name, :email
+  validates_uniqueness_of :name, :email
+  
   def self.permitted_params
   	[
   		:name,
@@ -21,4 +24,5 @@ class User
   		:password_digest
   	]
   end
+  
 end
