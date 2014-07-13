@@ -15,7 +15,7 @@ class TrucksController < ApplicationController
   # GET /trucks/new
   def new
     @truck = Truck.new
-    @location = @truck.locations
+    @location = @truck.build_location
     if params[:name].present?
       updater = TwitterApi.new
       @twitter_user = updater.find_user(params[:name])
@@ -74,6 +74,6 @@ class TrucksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def truck_params
-      params.require.permit(*Truck.permitted_params, locations_attributes: [:city, :state])
+      params.require(:truck).permit(*Truck.permitted_params, location_attributes: [:city, :state])
     end
 end
