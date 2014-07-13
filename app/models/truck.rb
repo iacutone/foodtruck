@@ -12,7 +12,10 @@ class Truck
   has_one :location
   belongs_to :user
   
-  accepts_nested_attributes_for :locations, reject_if: :all_blank, allow_destroy: true
+  accepts_nested_attributes_for :location #, reject_if: :all_blank, allow_destroy: true
+  
+  # validates_presence_of   :name, :twitter_name, :twitter_id
+  # validates_uniqueness_of :name, :twitter_name, :twitter_id
   
   def self.permitted_params
   	[
