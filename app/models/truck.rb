@@ -9,7 +9,7 @@ class Truck
   field :twitter_id,   type: String
   
   has_many :tweets
-  has_many :locations
+  has_one :location
   belongs_to :user
   
   accepts_nested_attributes_for :locations, reject_if: :all_blank, allow_destroy: true
