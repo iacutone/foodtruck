@@ -15,7 +15,7 @@ namespace :twitter do
 				truck.update_attributes(twitter_id: id)
 				truck.save!
 				log "Saved!"
-			rescue Twitter::Error::NotFound
+			rescue Twitter::Error::Unauthorized || Twitter::Error::NotFound
 				log "Something went wrong saving #{truck.name}."
 			end
 		end
@@ -31,7 +31,7 @@ namespace :twitter do
 					tweet.update_attributes(time: t.created_at, tweet_text: t.full_text)
 					tweet.save!
 				end
-			rescue Twitter::Error::NotFound
+			rescue Twitter::Error::Unauthorized || Twitter::Error::NotFound
 				log "Something went wrong saving #{truck.name}."
 			end
 		end
