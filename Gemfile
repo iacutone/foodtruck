@@ -7,6 +7,8 @@ gem 'rails', '4.0.1'
 gem 'autoprefixer-rails'
 gem 'bcrypt-ruby', '~> 3.1.2'
 gem 'bootstrap-sass', '~> 3.2.0'
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
 gem 'figaro'
 gem 'haml-rails'
 gem 'jbuilder', '~> 1.2'
@@ -15,7 +17,6 @@ gem 'google-analytics-rails'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'mongoid'
-gem 'mongoid-elasticsearch'
 gem 'sass-rails', '~> 4.0.0'
 gem 'simple_form'
 # gem 'treat'
@@ -39,7 +40,6 @@ end
 
 group :development, :test do
 	gem 'factory_girl_rails'
-  # gem 'jazz_hands'
   gem 'rspec-rails'
 end
  
