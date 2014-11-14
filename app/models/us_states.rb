@@ -1,6 +1,6 @@
 class UsStates
 	
-	def states
+  def states
 		[
       ['Alabama', 'AL'],
       ['Alaska', 'AK'],
@@ -55,5 +55,5 @@ class UsStates
       ['Wisconsin', 'WI'],
       ['Wyoming', 'WY']
     ]
-	end
+  end
 end
